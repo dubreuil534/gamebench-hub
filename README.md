@@ -33,9 +33,21 @@ GameBench Hub currently launches the tool, but it does not synthesize clicks ins
 Most tools still require the user to choose settings and press their in-app **Benchmark** button.
 Use a timed capture if a tool does not exit automatically.
 
+### macOS support
+
+The CLI runs natively on macOS and detects the Mac Steam library. It reports platform compatibility
+in `list`, explains the current host in `doctor`, and refuses to install or launch a Windows-only
+tool instead of handing an invalid request to Steam. The four initial publisher benchmarks are all
+Windows-only, so they cannot run natively on a Mac. PresentMon also depends on Windows ETW.
+
+This platform boundary is manifest-driven: an official future benchmark can opt into macOS with
+`platforms: [macos]` without changing the catalog or runner architecture. Native macOS performance
+collection is planned as a separate collector rather than pretending PresentMon works on macOS.
+
 ## Requirements
 
-- Windows 10 or 11 for the catalogued benchmarks
+- macOS, Windows, or Linux for the management CLI
+- Windows 10 or 11 for the four currently catalogued benchmark workloads
 - Python 3.11+
 - Steam desktop client
 - optional: the current 64-bit `PresentMon` console executable from Intel's official
@@ -80,6 +92,9 @@ gamebench run the-alters --duration 180
 gamebench run resident-evil-6 --no-collect
 gamebench run-all --duration 180 --results-dir results
 ```
+
+On macOS, the first two commands work and explicitly show that the current four workloads are not
+compatible. Installation and execution exit cleanly with status 2 and an explanatory message.
 
 Results are written under:
 
