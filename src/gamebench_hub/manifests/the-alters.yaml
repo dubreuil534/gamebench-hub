@@ -1,0 +1,18 @@
+schema_version: 1
+id: the-alters
+name: "The Alters Benchmark Tool"
+description: "Official standalone, non-playable benchmark by 11 bit studios."
+platforms: [windows]
+source:
+  type: steam
+  app_id: 3787490
+  store_url: "https://store.steampowered.com/app/3787490/"
+install:
+  type: steam_client
+launch:
+  type: steam
+  executable_names: [TheAlters.exe, TheAlters-Win64-Shipping.exe]
+automation: manual_start
+legal:
+  redistribution: forbidden
+  note: "Downloaded only from Steam; no game assets are included."

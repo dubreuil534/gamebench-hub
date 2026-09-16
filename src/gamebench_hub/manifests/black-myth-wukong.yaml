@@ -1,0 +1,18 @@
+schema_version: 1
+id: black-myth-wukong
+name: "Black Myth: Wukong Benchmark Tool"
+description: "Official standalone, non-playable benchmark by Game Science."
+platforms: [windows]
+source:
+  type: steam
+  app_id: 3132990
+  store_url: "https://store.steampowered.com/app/3132990/"
+install:
+  type: steam_client
+launch:
+  type: steam
+  executable_names: [b1_benchmark.exe, b1-Win64-Shipping.exe]
+automation: manual_start
+legal:
+  redistribution: forbidden
+  note: "Downloaded only from Steam; no game assets are included."

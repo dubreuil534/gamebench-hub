@@ -1,0 +1,18 @@
+schema_version: 1
+id: bright-memory-infinite-rt
+name: "Bright Memory: Infinite Ray Tracing Benchmark"
+description: "Official standalone ray-tracing benchmark by FYQD-Studio."
+platforms: [windows]
+source:
+  type: steam
+  app_id: 1409670
+  store_url: "https://store.steampowered.com/app/1409670/"
+install:
+  type: steam_client
+launch:
+  type: steam
+  executable_names: [BMIBenchMark-Win64-Shipping.exe]
+automation: manual_start
+legal:
+  redistribution: forbidden
+  note: "Downloaded only from Steam; no game assets are included."

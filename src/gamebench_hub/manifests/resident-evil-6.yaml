@@ -1,0 +1,18 @@
+schema_version: 1
+id: resident-evil-6
+name: "Resident Evil 6 Benchmark Tool"
+description: "Official standalone PC benchmark by Capcom."
+platforms: [windows]
+source:
+  type: steam
+  app_id: 229950
+  store_url: "https://store.steampowered.com/app/229950/"
+install:
+  type: steam_client
+launch:
+  type: steam
+  executable_names: [RE6.exe, BH6.exe]
+automation: manual_start
+legal:
+  redistribution: forbidden
+  note: "Downloaded only from Steam; no game assets are included."
