@@ -11,6 +11,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from gamebench_hub.models import Benchmark
+from gamebench_hub.platforms import current_platform
 
 
 class PresentMonNotFoundError(RuntimeError):
@@ -18,6 +19,8 @@ class PresentMonNotFoundError(RuntimeError):
 
 
 def find_presentmon(explicit: Path | None = None) -> Path | None:
+    if current_platform() != "windows":
+        return None
     if explicit and explicit.is_file():
         return explicit
     configured = os.environ.get("PRESENTMON_PATH")

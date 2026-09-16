@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from gamebench_hub.models import Benchmark
+from gamebench_hub.platforms import ensure_supported
 from gamebench_hub.presentmon import PresentMonCollector, Summary, find_presentmon
 from gamebench_hub.runners import Runner
 
@@ -13,6 +14,7 @@ class BenchmarkService:
         self.results_dir = results_dir
 
     def install(self, benchmark: Benchmark) -> None:
+        ensure_supported(benchmark)
         self.runner.install(benchmark)
 
     def run(
@@ -22,6 +24,7 @@ class BenchmarkService:
         presentmon_path: Path | None = None,
         duration: int | None = None,
     ) -> Summary | None:
+        ensure_supported(benchmark)
         executable = find_presentmon(presentmon_path) if collect else None
         if not executable:
             self.runner.run(benchmark)
